@@ -3,16 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Enhanced To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>📝 To-Do List</h1>
+
+    <div class="theme-toggle">
+      <button onclick="toggleTheme()">🌗 Toggle Theme</button>
+    </div>
+
     <div class="input-group">
       <input type="text" id="taskInput" placeholder="Enter a new task..." />
+      <input type="date" id="dueDate" />
+      <select id="priority">
+        <option value="">Priority</option>
+        <option value="high">🔥 High</option>
+        <option value="medium">⚡ Medium</option>
+        <option value="low">🌱 Low</option>
+      </select>
       <button onclick="addTask()">Add</button>
     </div>
+
+    <input type="text" id="searchBox" placeholder="Search tasks..." onkeyup="filterTasks()" />
+
+    <div id="taskCounter"></div>
     <ul id="taskList"></ul>
   </div>
 

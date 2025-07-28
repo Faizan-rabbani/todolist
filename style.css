@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #dbe6f6, #c5796d);
@@ -5,64 +6,119 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: start;
-  padding-top: 60px;
+  align-items: center;
   height: 100vh;
+  transition: 0.3s ease;
+  overflow: hidden;
 }
 
+body.dark {
+  background: #1e1e2f;
+  color: #eee;
+}
+
+/* Main Container */
 .container {
   background: rgba(255, 255, 255, 0.95);
-  padding: 30px 40px;
+  width: 95%;
+  max-width: 480px;
+  height: 90vh;
+  padding: 25px;
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 450px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
+body.dark .container {
+  background: rgba(40, 40, 60, 0.95);
+}
+
+/* Heading */
 h1 {
   text-align: center;
-  margin-bottom: 25px;
   color: #2f3542;
-  font-size: 2rem;
-  letter-spacing: 1px;
-}
-
-.input-group {
-  display: flex;
   margin-bottom: 20px;
 }
 
-input[type="text"] {
-  flex: 1;
-  padding: 12px 14px;
-  font-size: 16px;
+body.dark h1 {
+  color: #eee;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/* Input Group */
+.input-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group select {
+  padding: 10px;
+  font-size: 15px;
   border: 2px solid #ccc;
-  border-radius: 8px 0 0 8px;
-  outline: none;
-  transition: border-color 0.3s;
+  border-radius: 8px;
+  flex: 1;
 }
 
-input[type="text"]:focus {
-  border-color: #30c653;
-}
-
-button {
-  padding: 12px 18px;
+.input-group button {
+  padding: 10px 18px;
   background: #30c653;
   color: white;
   border: none;
-  font-size: 16px;
-  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-button:hover {
+.input-group button:hover {
   background: #19692b;
 }
 
+/* Search Box */
+#searchBox {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Task Counter */
+#taskCounter {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Task List */
+#taskList {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-top: 10px;
+}
+
+#taskList::-webkit-scrollbar {
+  width: 6px;
+}
+
+#taskList::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+/* List Items */
 ul {
   list-style: none;
   padding: 0;
@@ -70,43 +126,46 @@ ul {
 
 li {
   background: #f0f4f8;
-  padding: 14px 16px;
+  padding: 14px;
   margin-bottom: 12px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: transform 0.2s;
+  flex-direction: column;
   border: 1px solid #e2e8f0;
 }
 
-li:hover {
-  transform: scale(1.02);
+body.dark li {
+  background: #2d2d3a;
+  color: #fff;
+  border: 1px solid #444;
 }
 
-li.completed span.task-text {
+li.completed .task-text {
   text-decoration: line-through;
   color: #888;
 }
 
-li input[type="checkbox"] {
-  margin-right: 12px;
-  transform: scale(1.3);
-  cursor: pointer;
+/* Top Row Inside List Item */
+.task-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+/* Task Text */
 .task-text {
   flex: 1;
   cursor: pointer;
-  font-size: 16px;
 }
 
+/* Action Buttons */
 .actions {
   display: flex;
   gap: 8px;
+  margin-top: 8px;
 }
 
-li button {
+.actions button {
   background: #e74c3c;
   border: none;
   color: white;
@@ -114,26 +173,46 @@ li button {
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  transition: background 0.3s;
 }
 
-li button:hover {
-  background: #c0392b;
-}
-
-li .edit-btn {
+.actions .edit-btn {
   background-color: #3498db;
 }
 
-li .edit-btn:hover {
+.actions .edit-btn:hover {
   background-color: #217dbb;
 }
 
+.actions button:hover {
+  background: #c0392b;
+}
 
+/* Editing Input */
 .editing {
-  padding: 8px 10px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 15px;
   border: 2px solid #3498db;
   border-radius: 6px;
   outline: none;
+  flex: 1;
+}
+
+/* Priority Labels */
+.priority-label {
+  font-size: 13px;
+  margin-top: 4px;
+  color: #555;
+}
+
+/* Priority Colors */
+.high {
+  border-left: 5px solid red;
+}
+
+.medium {
+  border-left: 5px solid orange;
+}
+
+.low {
+  border-left: 5px solid green;
 }
