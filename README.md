@@ -45,7 +45,7 @@ Frontend: HTML, CSS, JavaScript
 
 1. Clone the repository:
 ```
-git clone https://github.com/your-username/todo-list.git
+git clone https://github.com/Faizan-rabbani/todolist.git
 ```
 2. Run index.html in your browser.
 
