@@ -14,7 +14,7 @@ A simple and interactive To-Do List Website that allows users to create, manage,
 
 🕒 Real-time task updates without refreshing
 
-📱 Responsive design (works on desktop & mobile)
+📱 Responsive design 
 
 🎨 Clean and modern UI
 
